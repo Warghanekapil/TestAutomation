@@ -131,9 +131,10 @@ public String checkEmpID(String EmployeeID) {
 	return EmployeeID;
 }
 
-public void deleteEmployee() {
+public void deleteEmployee() throws InterruptedException {
 	WebElement deleteEmp=driver.findElement(deleteempLocator);
-	deleteEmp.click();	
+	deleteEmp.click();
+	Thread.sleep(5000);
 	//WebElement click=driver.findElement(By.xpath("[@class='oxd-icon bi-trash-fill oxd-button-icon']"));
 	//click.click();
 }
@@ -141,7 +142,7 @@ public void deleteEmployee() {
 public void confirmdeletion() throws InterruptedException {
 
  WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
- wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//button//i[@class='oxd-icon bi-trash oxd-button-icon']"))).click();
+ wait.until(ExpectedConditions.elementToBeClickable(By.xpath("//div/button[@class='oxd-button oxd-button--medium oxd-button--label-danger orangehrm-button-margin']"))).click();
 
 //	WebElement element = driver.findElement(By.xpath("(//button[@type='button'])[16]"));
 //	Actions actions = new Actions(driver);

@@ -21,15 +21,15 @@ public class Hooks {
 		this.tcs=tcs;
 	}
 	//In After order 1 will be exceuted first and then order 0 
-//	@After(order=0)
-//	public void teardown() throws IOException {
-//		
-//		if(tcs.DriverSetting()!=null) {
-//			tcs.DriverSetting().quit();
-//		}
-//		//tcs.DriverSetting().quit();
-//	}
-//	
+	@After(order=0)
+	public void teardown() throws IOException {
+		
+		if(tcs.DriverSetting()!=null) {
+			tcs.DriverSetting().quit();
+		}
+		//tcs.DriverSetting().quit();
+	}
+	
 	@After(order=1)
 	public void failTest(Scenario scenario) throws WebDriverException, IOException, InterruptedException {
 		if(scenario.isFailed()) {
